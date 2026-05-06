@@ -100,7 +100,7 @@
 <script>
 const CONFIG = {
   AERODATABOX_KEY: 'e6ed8d64bbmsha9d357582c607b3p12fc27jsna634a99e395e',
-  AIRPORT_ICAO:    'KBOS',
+  AIRPORT_IATA:    'BOS',
   ROWS:            8,
   REFRESH_SECS:    300, // 5 minutes — stays comfortably within Basic plan limits
 };
@@ -212,7 +212,7 @@ function tr(s,n){if(!s)return'';s=s.trim();return s.length>n?s.substring(0,n-1).
 
 // ---- API ----
 async function fetchFIDS(dir){
-  const url=`https://aerodatabox.p.rapidapi.com/flights/airports/icao/${CONFIG.AIRPORT_ICAO}/-1h/5h?direction=${dir}&withLeg=true&withCancelled=false&withCodeshared=true&withCargo=false&withPrivate=false&withLocation=false`;
+  const url=`https://aerodatabox.p.rapidapi.com/flights/airports/iata/${CONFIG.AIRPORT_IATA}/-1H/5H?direction=${dir}&withLeg=true&withCancelled=false&withCodeshared=true&withCargo=false&withPrivate=false&withLocation=false`;
   const r=await fetch(url,{headers:{'X-RapidAPI-Key':CONFIG.AERODATABOX_KEY,'X-RapidAPI-Host':'aerodatabox.p.rapidapi.com'}});
   if(!r.ok){const t=await r.text();throw new Error(`${r.status}: ${t.substring(0,80)}`);}
   const j=await r.json();
