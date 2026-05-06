@@ -354,7 +354,12 @@ function startCountdown(){
   },1000);
 }
 
-async function refresh(){await Promise.all([loadDep(),loadArr()]);startCountdown();}
+async function refresh(){
+  await loadDep();
+  await new Promise(r=>setTimeout(r,1500));
+  await loadArr();
+  startCountdown();
+}
 refresh();
 setInterval(refresh,CONFIG.REFRESH_SECS*1000);
 </script>
