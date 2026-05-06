@@ -216,7 +216,7 @@ async function fetchFIDS(dir){
   const r=await fetch(url,{headers:{'X-RapidAPI-Key':CONFIG.AERODATABOX_KEY,'X-RapidAPI-Host':'aerodatabox.p.rapidapi.com'}});
   if(!r.ok){const t=await r.text();throw new Error(`${r.status}: ${t.substring(0,80)}`);}
   const j=await r.json();
-  return j[dir]||j.arrivals||j.departures||j||[];
+  return j['Departure']||j['Arrival']||j.departures||j.arrivals||j||[];
 }
 
 function parseDep(f){
@@ -316,7 +316,7 @@ function renderSection(id,rows){
 // ---- Load ----
 async function loadDep(){
   try{
-    const raw=await fetchFIDS('departures');
+    const raw=await fetchFIDS('Departure');
     const rows=raw.sort((a,b)=>new Date(a.departure?.scheduledTimeUtc||0)-new Date(b.departure?.scheduledTimeUtc||0)).slice(0,CONFIG.ROWS).map(parseDep);
     renderSection('dep-rows',rows);
     document.getElementById('dep-updated').textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit'});
@@ -328,7 +328,7 @@ async function loadDep(){
 
 async function loadArr(){
   try{
-    const raw=await fetchFIDS('arrivals');
+    const raw=await fetchFIDS('Arrival');
     const rows=raw.sort((a,b)=>new Date(a.arrival?.scheduledTimeUtc||0)-new Date(b.arrival?.scheduledTimeUtc||0)).slice(0,CONFIG.ROWS).map(parseArr);
     renderSection('arr-rows',rows);
     document.getElementById('arr-updated').textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit'});
