@@ -22,35 +22,21 @@
   html, body { width:100%; height:100%; background:var(--bg); color:var(--white); font-family:'Share Tech Mono',monospace; overflow:hidden; }
   body { display:flex; flex-direction:column; }
 
-  /* HEADER */
   .header {
-    flex-shrink:0;
-    background:#0c0c08;
+    flex-shrink:0; background:#0c0c08;
     border-bottom:2px solid var(--amber-dim);
-    padding:8px 16px;
-    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 16px; display:flex; align-items:center; justify-content:space-between;
   }
   .airport-block { display:flex; align-items:baseline; gap:12px; }
-  .iata {
-    font-family:'Oswald',sans-serif;
-    font-size:clamp(1.8rem,4vw,2.8rem);
-    font-weight:700; color:var(--amber);
-    letter-spacing:0.06em; line-height:1;
-  }
+  .iata { font-family:'Oswald',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--amber); letter-spacing:0.06em; line-height:1; }
   .airport-meta { display:flex; flex-direction:column; gap:2px; }
-  .airport-meta span {
-    font-size:clamp(0.5rem,1.2vw,0.65rem);
-    letter-spacing:0.16em; text-transform:uppercase;
-    color:var(--amber-dim); line-height:1.3;
-  }
+  .airport-meta span { font-size:clamp(0.5rem,1.2vw,0.65rem); letter-spacing:0.16em; text-transform:uppercase; color:var(--amber-dim); line-height:1.3; }
   .clock-block { text-align:right; }
   .clock { font-size:clamp(1.2rem,3vw,2rem); color:var(--amber); letter-spacing:0.1em; line-height:1; }
   .clock-date { font-size:clamp(0.46rem,1vw,0.58rem); color:var(--amber-dim); letter-spacing:0.12em; text-transform:uppercase; margin-top:3px; }
 
-  /* MAIN */
   .main { flex:1; display:flex; flex-direction:column; overflow:hidden; min-height:0; }
 
-  /* SECTION */
   .section { flex:1; display:flex; flex-direction:column; min-height:0; border-bottom:2px solid var(--amber-dim); }
   .section:last-child { border-bottom:none; }
 
@@ -61,39 +47,26 @@
   }
   .blink-dot { width:5px; height:5px; border-radius:50%; background:var(--amber); animation:blink 2s ease-in-out infinite; flex-shrink:0; }
   @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.15;} }
-
-  .section-label {
-    font-family:'Oswald',sans-serif;
-    font-size:clamp(0.62rem,1.4vw,0.82rem);
-    font-weight:600; color:var(--amber);
-    letter-spacing:0.22em; text-transform:uppercase;
-  }
+  .section-label { font-family:'Oswald',sans-serif; font-size:clamp(0.62rem,1.4vw,0.82rem); font-weight:600; color:var(--amber); letter-spacing:0.22em; text-transform:uppercase; }
   .section-updated { margin-left:auto; font-size:clamp(0.42rem,0.9vw,0.55rem); color:var(--white-dim); letter-spacing:0.1em; }
 
-  /* COL HEADERS */
   .col-headers {
-    flex-shrink:0;
-    display:grid;
-    grid-template-columns:88px 118px 1fr 58px 72px 80px;
-    gap:0 6px; padding:3px 16px;
-    background:#0a0a0a; border-bottom:1px solid #1a1a1a;
+    flex-shrink:0; display:grid;
+    grid-template-columns:88px 118px 1fr 58px 72px 88px;
+    gap:0 6px; padding:3px 16px; background:#0a0a0a; border-bottom:1px solid #1a1a1a;
   }
   .col-head { font-size:clamp(0.4rem,0.88vw,0.5rem); color:var(--white-dim); letter-spacing:0.14em; text-transform:uppercase; }
 
-  /* ROWS */
   .rows { flex:1; min-height:0; display:flex; flex-direction:column; }
   .flight-row {
-    flex:1; min-height:0;
-    display:grid;
-    grid-template-columns:88px 118px 1fr 58px 72px 80px;
-    gap:0 6px; padding:0 16px;
-    border-bottom:1px solid #161616; align-items:center;
+    flex:1; min-height:0; display:grid;
+    grid-template-columns:88px 118px 1fr 58px 72px 88px;
+    gap:0 6px; padding:0 16px; border-bottom:1px solid #161616; align-items:center;
   }
   .flight-row:last-child { border-bottom:none; }
   .flight-row.even { background:#0c0c0c; }
   .flight-row.odd  { background:#090909; }
 
-  /* FLAP */
   .flap-cell { display:flex; align-items:center; gap:1px; overflow:hidden; }
   .flap { flex-shrink:0; position:relative; width:clamp(9px,1.55vw,13px); height:clamp(14px,2.5vw,21px); perspective:300px; }
   .flap-half { position:absolute; left:0; right:0; overflow:hidden; border:1px solid #262626; }
@@ -105,17 +78,14 @@
   .flap.amber .flap-char     { color:var(--amber); }
   .flap.amber .flap-top-half { background:#181208; border-color:#3a2808; border-bottom-color:#060402; }
   .flap.amber .flap-bot-half { background:#100e06; border-color:#3a2808; }
-  .flap.dim .flap-char       { color:var(--white-dim); }
 
   .do-flip-top { animation:ftop 0.1s ease-in  forwards; }
   .do-flip-bot { animation:fbot 0.1s ease-out forwards; }
   @keyframes ftop { from{transform:rotateX(0);}    to{transform:rotateX(-90deg);} }
   @keyframes fbot { from{transform:rotateX(90deg);} to{transform:rotateX(0);} }
 
-  /* STATUS */
   .status-msg { flex:1; display:flex; align-items:center; justify-content:center; font-size:clamp(0.52rem,1.1vw,0.68rem); color:var(--white-dim); letter-spacing:0.2em; text-transform:uppercase; }
 
-  /* FOOTER */
   .footer { flex-shrink:0; background:#0a0a08; border-top:1px solid #1a1a1a; padding:4px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
   .footer-label { font-size:clamp(0.38rem,0.82vw,0.5rem); color:#282826; letter-spacing:0.12em; text-transform:uppercase; }
   .refresh-track { flex:1; max-width:100px; height:2px; background:#1a1a1a; border-radius:1px; overflow:hidden; }
@@ -123,6 +93,19 @@
 </style>
 </head>
 <body>
+
+<!-- ============================================
+     PASTE YOUR AERODATABOX API KEY BELOW
+     ============================================ -->
+<script>
+const CONFIG = {
+  AERODATABOX_KEY: 'e6ed8d64bbmsha9d357582c607b3p12fc27jsna634a99e395e',
+  AIRPORT_ICAO:    'KBOS',
+  ROWS:            8,
+  REFRESH_SECS:    300, // 5 minutes — stays comfortably within Basic plan limits
+};
+</script>
+<!-- ============================================ -->
 
 <div class="header">
   <div class="airport-block">
@@ -146,12 +129,12 @@
       <div class="section-updated" id="dep-updated"></div>
     </div>
     <div class="col-headers">
-      <div class="col-head">Callsign</div>
+      <div class="col-head">Flight</div>
       <div class="col-head">Airline</div>
       <div class="col-head">Destination</div>
       <div class="col-head">Departs</div>
-      <div class="col-head">Airborne</div>
-      <div class="col-head">Alt / Spd</div>
+      <div class="col-head">Duration</div>
+      <div class="col-head">Aircraft</div>
     </div>
     <div class="rows" id="dep-rows"><div class="status-msg">Loading...</div></div>
   </div>
@@ -163,267 +146,128 @@
       <div class="section-updated" id="arr-updated"></div>
     </div>
     <div class="col-headers">
-      <div class="col-head">Callsign</div>
+      <div class="col-head">Flight</div>
       <div class="col-head">Airline</div>
       <div class="col-head">Origin</div>
       <div class="col-head">Arrives</div>
       <div class="col-head">Airborne</div>
-      <div class="col-head">Alt / Spd</div>
+      <div class="col-head">Aircraft</div>
     </div>
     <div class="rows" id="arr-rows"><div class="status-msg">Loading...</div></div>
   </div>
 </div>
 
 <div class="footer">
-  <div class="footer-label">Boston Logan · OpenSky Network · All times local</div>
+  <div class="footer-label">Boston Logan · AeroDataBox · All times local</div>
   <div class="refresh-track"><div class="refresh-fill" id="refresh-fill"></div></div>
   <div class="footer-label" id="footer-next">Refreshing in --s</div>
 </div>
 
 <script>
-// ============================================
-// CONFIG — no API key needed
-// ============================================
-const CONFIG = {
-  // BOS airport bounding box (lat/lon)
-  LAT_MIN:  42.34,
-  LAT_MAX:  42.38,
-  LON_MIN: -71.03,
-  LON_MAX: -70.98,
-  // BOS ICAO for flight schedule lookups
-  AIRPORT:  'KBOS',
-  ROWS:     8,
-  REFRESH_SECS: 120,
-};
-
-// Airline ICAO prefix -> name lookup (covers most BOS traffic)
-const AIRLINES = {
-  AAL:'American',   UAL:'United',     DAL:'Delta',
-  SWA:'Southwest',  JBU:'JetBlue',    ASA:'Alaska',
-  FFT:'Frontier',   NKS:'Spirit',     HAL:'Hawaiian',
-  BAW:'British Awys',AFR:'Air France', DLH:'Lufthansa',
-  ACA:'Air Canada', WJA:'WestJet',    TAM:'LATAM',
-  GLO:'GOL',        AVA:'Avianca',    VOI:'Volaris',
-  QXE:'Horizon Air',SKW:'SkyWest',    PDT:'PenAir',
-  EJA:'NetJets',    FDX:'FedEx',      UPS:'UPS',
-  RPA:'Republic',   ENY:'Envoy',      CPZ:'Compass',
-  CPA:'Cathay Pac', UAE:'Emirates',   QTR:'Qatar',
-  THY:'Turkish',    KLM:'KLM',        VIR:'Virgin Atl',
-  IBE:'Iberia',     SAS:'Scandinavian',FIN:'Finnair',
-};
-
-function airlineName(callsign) {
-  if (!callsign || callsign.trim() === '') return '----------';
-  const prefix = callsign.replace(/[0-9]/g,'').trim().substring(0,3).toUpperCase();
-  return AIRLINES[prefix] || prefix || '----------';
+// ---- Audio ----
+let _ctx=null;
+function actx(){if(!_ctx)_ctx=new(window.AudioContext||window.webkitAudioContext)();return _ctx;}
+['click','touchstart'].forEach(e=>document.addEventListener(e,()=>{try{actx().resume();}catch(x){}},{once:true}));
+function clack(){
+  try{
+    const c=actx(),len=Math.floor(c.sampleRate*0.024);
+    const b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.5);
+    const s=c.createBufferSource(),g=c.createGain();
+    s.buffer=b;g.gain.value=0.13;s.connect(g);g.connect(c.destination);s.start();
+  }catch(e){}
 }
 
-// ============================================
-// AUDIO
-// ============================================
-let _ctx = null;
-function actx() { if (!_ctx) _ctx = new (window.AudioContext||window.webkitAudioContext)(); return _ctx; }
-['click','touchstart'].forEach(e => document.addEventListener(e,()=>{try{actx().resume();}catch(x){}},{once:true}));
-
-function clack() {
-  try {
-    const c=actx(), len=Math.floor(c.sampleRate*0.024);
-    const b=c.createBuffer(1,len,c.sampleRate), d=b.getChannelData(0);
-    for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.5);
-    const s=c.createBufferSource(), g=c.createGain();
-    s.buffer=b; g.gain.value=0.13;
-    s.connect(g); g.connect(c.destination); s.start();
-  } catch(e){}
-}
-
-// ============================================
-// CLOCK
-// ============================================
-function tick() {
+// ---- Clock ----
+function tick(){
   const n=new Date();
   document.getElementById('clock').textContent=n.toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'});
   document.getElementById('clock-date').textContent=n.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}).toUpperCase();
 }
-setInterval(tick,1000); tick();
+setInterval(tick,1000);tick();
 
-// ============================================
-// HELPERS
-// ============================================
-function pad(v,n){ let s=String(v??''); while(s.length<n) s+=' '; return s.substring(0,n); }
-function tr(s,n){ if(!s) return ''; s=s.trim(); return s.length>n ? s.substring(0,n-1).trimEnd() : s; }
+// ---- Helpers ----
+function pad(v,n){let s=String(v??'');while(s.length<n)s+=' ';return s.substring(0,n);}
+function tr(s,n){if(!s)return'';s=s.trim();return s.length>n?s.substring(0,n-1).trimEnd():s;}
 
-function fmtTime(unix) {
-  if (!unix) return '-----';
-  try {
-    return new Date(unix*1000).toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit',timeZone:'America/New_York'});
-  } catch(e){ return '-----'; }
+function fmtTime(iso){
+  if(!iso)return'-----';
+  try{return new Date(iso).toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit',timeZone:'America/New_York'});}
+  catch(e){return'-----';}
 }
 
-function fmtAirborne(unix) {
-  if (!unix) return '-----';
-  const mins = Math.round((Date.now()/1000 - unix)/60);
-  if (mins < 0) return '-----';
-  const h=Math.floor(mins/60), m=mins%60;
-  return h>0 ? `${h}h${String(m).padStart(2,'0')}m` : `${m}min`;
+function fmtMins(m){
+  if(!m||isNaN(m)||m<0)return'-----';
+  const h=Math.floor(m/60),r=m%60;
+  return h>0?`${h}h${String(r).padStart(2,'0')}m`:`${r}min`;
 }
 
-function fmtAltSpd(altM, spdMs) {
-  // altitude in meters -> feet, speed m/s -> knots
-  if (!altM && !spdMs) return '-------';
-  const ft  = altM  ? Math.round(altM  * 3.281 / 100) * 100 : null;
-  const kts = spdMs ? Math.round(spdMs * 1.944)             : null;
-  if (ft && kts) return `${ft}ft`;
-  if (ft)        return `${ft}ft`;
-  if (kts)       return `${kts}kt`;
-  return '-------';
+function fmtAirborne(depIso){
+  if(!depIso)return'-----';
+  try{return fmtMins(Math.round((Date.now()-new Date(depIso))/60000));}
+  catch(e){return'-----';}
 }
 
-// ============================================
-// OPENSKY API
-// ============================================
-// OpenSky REST: get all states in BOS bounding box
-async function fetchStates() {
-  const url = `https://corsproxy.io/?url=https://opensky-network.org/api/states/all?lamin=${CONFIG.LAT_MIN}&lomin=${CONFIG.LON_MIN}&lamax=${CONFIG.LAT_MAX}&lomax=${CONFIG.LON_MAX}`;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error(`OpenSky states ${resp.status}`);
-  const json = await resp.json();
-  return json.states || [];
+function tr(s,n){if(!s)return'';s=s.trim();return s.length>n?s.substring(0,n-1).trimEnd():s;}
+
+// ---- API ----
+async function fetchFIDS(dir){
+  const url=`https://aerodatabox.p.rapidapi.com/flights/airports/icao/${CONFIG.AIRPORT_ICAO}/-1h/5h?direction=${dir}&withLeg=true&withCancelled=false&withCodeshared=true&withCargo=false&withPrivate=false&withLocation=false`;
+  const r=await fetch(url,{headers:{'X-RapidAPI-Key':CONFIG.AERODATABOX_KEY,'X-RapidAPI-Host':'aerodatabox.p.rapidapi.com'}});
+  if(!r.ok){const t=await r.text();throw new Error(`${r.status}: ${t.substring(0,80)}`);}
+  const j=await r.json();
+  return j[dir]||j.arrivals||j.departures||j||[];
 }
 
-// OpenSky REST: get arrivals/departures for BOS in last 2 hours
-async function fetchFlights(type) {
-  // type: 'arrival' or 'departure'
-  const now   = Math.floor(Date.now()/1000);
-  const begin = now - 7200; // 2 hours ago
-  const url   = `https://corsproxy.io/?url=https://opensky-network.org/api/flights/${type}?airport=${CONFIG.AIRPORT}&begin=${begin}&end=${now}`;
-  const resp  = await fetch(url);
-  if (!resp.ok) throw new Error(`OpenSky ${type} ${resp.status}`);
-  return await resp.json();
+function parseDep(f){
+  const dep=f.departure?.scheduledTimeUtc||f.departure?.scheduledTimeLocal;
+  const arr=f.arrival?.scheduledTimeUtc||f.arrival?.scheduledTimeLocal;
+  let duration='-----';
+  try{const d=new Date(dep),a=new Date(arr);if(!isNaN(d)&&!isNaN(a))duration=fmtMins(Math.round((a-d)/60000));}catch(e){}
+  return{
+    flight:   tr(f.number||'-------',9),
+    airline:  tr(f.airline?.name||'----------',11),
+    city:     tr(f.arrival?.airport?.name||f.arrival?.airport?.iata||'---',18),
+    time:     fmtTime(f.departure?.scheduledTimeLocal||dep),
+    duration,
+    aircraft: tr(f.aircraft?.model||f.aircraft?.reg||'--------',9),
+  };
 }
 
-// ============================================
-// BUILD DISPLAY ROWS
-// ============================================
-// state fields: [icao24, callsign, origin_country, time_position, last_contact,
-//                longitude, latitude, baro_altitude, on_ground, velocity,
-//                true_track, vertical_rate, sensors, geo_altitude, squawk, spi, position_source]
-const S_CALLSIGN=1, S_LON=5, S_LAT=6, S_ALT=7, S_GROUND=8, S_VEL=9, S_VERT=11;
-
-async function buildDepartures(states) {
-  // Departing = on ground OR just left ground (low altitude, climbing)
-  // Pull recent departures from flights API for schedule info
-  let flights = [];
-  try { flights = await fetchFlights('departure'); } catch(e){ console.warn('dep flights:',e); }
-
-  // Map icao24 -> flight info
-  const flightMap = {};
-  (flights||[]).forEach(f => {
-    if (f.icao24) flightMap[f.icao24.toLowerCase()] = f;
-  });
-
-  // Also look at live states for planes that recently took off (low alt, climbing, not on ground)
-  const airborne = states.filter(s => !s[S_GROUND] && s[S_ALT] && s[S_ALT] < 8000 && s[S_VERT] > 0);
-
-  // Merge: prefer flight API data, enrich with live state
-  const rows = [];
-
-  // From flight schedule
-  flights.slice(0, CONFIG.ROWS * 2).forEach(f => {
-    const callsign = tr(f.callsign||'', 9);
-    if (!callsign) return;
-    const liveState = states.find(s => s[S_CALLSIGN] && s[S_CALLSIGN].trim() === callsign);
-    rows.push({
-      flight:   callsign,
-      airline:  tr(airlineName(callsign), 11),
-      city:     tr(f.estArrivalAirport || '---', 18),
-      time:     fmtTime(f.firstSeen || f.lastSeen),
-      airborne: fmtAirborne(f.firstSeen),
-      altspd:   liveState ? fmtAltSpd(liveState[S_ALT], liveState[S_VEL]) : '-------',
-    });
-  });
-
-  // Add any live airborne not already in list
-  airborne.forEach(s => {
-    const cs = tr((s[S_CALLSIGN]||'').trim(), 9);
-    if (!cs || rows.find(r => r.flight === cs)) return;
-    rows.push({
-      flight:   cs,
-      airline:  tr(airlineName(cs), 11),
-      city:     '------------------'.substring(0,18),
-      time:     '-----',
-      airborne: '---',
-      altspd:   fmtAltSpd(s[S_ALT], s[S_VEL]),
-    });
-  });
-
-  return rows.slice(0, CONFIG.ROWS);
+function parseArr(f){
+  const depActual=f.departure?.actualTimeUtc||f.departure?.estimatedTimeUtc||f.departure?.scheduledTimeUtc;
+  return{
+    flight:   tr(f.number||'-------',9),
+    airline:  tr(f.airline?.name||'----------',11),
+    city:     tr(f.departure?.airport?.name||f.departure?.airport?.iata||'---',18),
+    time:     fmtTime(f.arrival?.scheduledTimeLocal||f.arrival?.scheduledTimeUtc),
+    duration: fmtAirborne(depActual),
+    aircraft: tr(f.aircraft?.model||f.aircraft?.reg||'--------',9),
+  };
 }
 
-async function buildArrivals(states) {
-  let flights = [];
-  try { flights = await fetchFlights('arrival'); } catch(e){ console.warn('arr flights:',e); }
-
-  // Live states descending into BOS (low alt, descending or slow)
-  const descending = states.filter(s => !s[S_GROUND] && s[S_ALT] && s[S_ALT] < 6000 && s[S_VERT] < 0);
-
-  const rows = [];
-
-  flights.slice(0, CONFIG.ROWS * 2).forEach(f => {
-    const callsign = tr(f.callsign||'', 9);
-    if (!callsign) return;
-    const liveState = states.find(s => s[S_CALLSIGN] && s[S_CALLSIGN].trim() === callsign);
-    rows.push({
-      flight:   callsign,
-      airline:  tr(airlineName(callsign), 11),
-      city:     tr(f.estDepartureAirport || '---', 18),
-      time:     fmtTime(f.lastSeen),
-      airborne: fmtAirborne(f.firstSeen),
-      altspd:   liveState ? fmtAltSpd(liveState[S_ALT], liveState[S_VEL]) : '-------',
-    });
-  });
-
-  descending.forEach(s => {
-    const cs = tr((s[S_CALLSIGN]||'').trim(), 9);
-    if (!cs || rows.find(r => r.flight === cs)) return;
-    rows.push({
-      flight:   cs,
-      airline:  tr(airlineName(cs), 11),
-      city:     '------------------'.substring(0,18),
-      time:     '-----',
-      airborne: '---',
-      altspd:   fmtAltSpd(s[S_ALT], s[S_VEL]),
-    });
-  });
-
-  return rows.slice(0, CONFIG.ROWS);
-}
-
-// ============================================
-// FLAP RENDERING
-// ============================================
-const COLS_DEP = [
-  {key:'flight',  n:9,  amber:true},
-  {key:'airline', n:11, amber:false},
-  {key:'city',    n:18, amber:false},
-  {key:'time',    n:5,  amber:false},
-  {key:'airborne',n:7,  amber:false},
-  {key:'altspd',  n:7,  amber:false},
+// ---- Flap rendering ----
+const COLS=[
+  {key:'flight',  n:9, amber:true},
+  {key:'airline', n:11,amber:false},
+  {key:'city',    n:18,amber:false},
+  {key:'time',    n:5, amber:false},
+  {key:'duration',n:7, amber:false},
+  {key:'aircraft',n:9, amber:false},
 ];
-const COLS_ARR = COLS_DEP; // same structure
 
-function makeFlap(ch, amber) {
-  const w=document.createElement('div');
-  w.className='flap'+(amber?' amber':'');
+function makeFlap(ch,amber){
+  const w=document.createElement('div');w.className='flap'+(amber?' amber':'');
   ['flap-top-half','flap-bot-half'].forEach(cls=>{
-    const h=document.createElement('div'); h.className='flap-half '+cls;
-    const c=document.createElement('span'); c.className='flap-char'; c.textContent=ch;
-    h.appendChild(c); w.appendChild(h);
+    const h=document.createElement('div');h.className='flap-half '+cls;
+    const c=document.createElement('span');c.className='flap-char';c.textContent=ch;
+    h.appendChild(c);w.appendChild(h);
   });
   return w;
 }
 
 function makeFlapCell(text,n,amber){
-  const cell=document.createElement('div'); cell.className='flap-cell';
+  const cell=document.createElement('div');cell.className='flap-cell';
   pad(text,n).split('').forEach(ch=>cell.appendChild(makeFlap(ch,amber)));
   return cell;
 }
@@ -431,91 +275,88 @@ function makeFlapCell(text,n,amber){
 function animateFlap(flapEl,newCh,delay){
   setTimeout(()=>{
     clack();
-    const top=flapEl.querySelector('.flap-top-half');
-    const bot=flapEl.querySelector('.flap-bot-half');
-    top.classList.remove('do-flip-top'); void top.offsetWidth; top.classList.add('do-flip-top');
+    const top=flapEl.querySelector('.flap-top-half'),bot=flapEl.querySelector('.flap-bot-half');
+    top.classList.remove('do-flip-top');void top.offsetWidth;top.classList.add('do-flip-top');
     setTimeout(()=>{
       flapEl.querySelectorAll('.flap-char').forEach(c=>c.textContent=newCh);
       top.classList.remove('do-flip-top');
-      bot.classList.remove('do-flip-bot'); void bot.offsetWidth; bot.classList.add('do-flip-bot');
+      bot.classList.remove('do-flip-bot');void bot.offsetWidth;bot.classList.add('do-flip-bot');
       setTimeout(()=>bot.classList.remove('do-flip-bot'),110);
     },100);
   },delay);
 }
 
-function buildRow(data,idx,cols){
+function buildRow(data,idx){
   const row=document.createElement('div');
   row.className=`flight-row ${idx%2===0?'even':'odd'}`;
-  cols.forEach(c=>row.appendChild(makeFlapCell(data[c.key],c.n,c.amber)));
+  COLS.forEach(c=>row.appendChild(makeFlapCell(data[c.key],c.n,c.amber)));
   return row;
 }
 
-function updateRow(rowEl,newData,cols){
+function updateRow(rowEl,newData){
   const cells=rowEl.querySelectorAll('.flap-cell');
-  cols.forEach((col,ci)=>{
+  COLS.forEach((col,ci)=>{
     const flaps=cells[ci].querySelectorAll('.flap');
     const newText=pad(newData[col.key],col.n);
     flaps.forEach((flap,fi)=>{
       const cur=flap.querySelector('.flap-top-half .flap-char').textContent;
-      if(cur!==newText[fi]) animateFlap(flap,newText[fi],ci*50+fi*14);
+      if(cur!==newText[fi])animateFlap(flap,newText[fi],ci*50+fi*14);
     });
   });
 }
 
-function renderSection(id,rows,cols){
+function renderSection(id,rows){
   const container=document.getElementById(id);
-  if(!rows||!rows.length){ container.innerHTML='<div class="status-msg">No flights in range</div>'; return; }
+  if(!rows||!rows.length){container.innerHTML='<div class="status-msg">No flights in window</div>';return;}
   const existing=container.querySelectorAll('.flight-row');
-  if(existing.length===rows.length){ rows.forEach((d,i)=>updateRow(existing[i],d,cols)); }
-  else { container.innerHTML=''; rows.forEach((d,i)=>container.appendChild(buildRow(d,i,cols))); }
+  if(existing.length===rows.length){rows.forEach((d,i)=>updateRow(existing[i],d));}
+  else{container.innerHTML='';rows.forEach((d,i)=>container.appendChild(buildRow(d,i)));}
 }
 
-// ============================================
-// LOAD & REFRESH
-// ============================================
-async function refresh() {
-  try {
-    const states = await fetchStates();
-
-    const [depRows, arrRows] = await Promise.all([
-      buildDepartures(states),
-      buildArrivals(states),
-    ]);
-
-    renderSection('dep-rows', depRows, COLS_DEP);
-    renderSection('arr-rows', arrRows, COLS_ARR);
-
-    const t = new Date().toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit'});
-    document.getElementById('dep-updated').textContent = 'Updated '+t;
-    document.getElementById('arr-updated').textContent = 'Updated '+t;
-  } catch(e) {
-    console.error('Refresh error:',e);
-    ['dep-rows','arr-rows'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el.querySelector('.status-msg')) el.innerHTML=`<div class="status-msg">Connection error — retrying</div>`;
-    });
+// ---- Load ----
+async function loadDep(){
+  try{
+    const raw=await fetchFIDS('departures');
+    const rows=raw.sort((a,b)=>new Date(a.departure?.scheduledTimeUtc||0)-new Date(b.departure?.scheduledTimeUtc||0)).slice(0,CONFIG.ROWS).map(parseDep);
+    renderSection('dep-rows',rows);
+    document.getElementById('dep-updated').textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit'});
+  }catch(e){
+    document.getElementById('dep-rows').innerHTML=`<div class="status-msg">Check API key &mdash; ${e.message.substring(0,50)}</div>`;
+    console.error('DEP:',e);
   }
-  startCountdown();
 }
 
-let cdTimer=null, secsLeft=CONFIG.REFRESH_SECS;
+async function loadArr(){
+  try{
+    const raw=await fetchFIDS('arrivals');
+    const rows=raw.sort((a,b)=>new Date(a.arrival?.scheduledTimeUtc||0)-new Date(b.arrival?.scheduledTimeUtc||0)).slice(0,CONFIG.ROWS).map(parseArr);
+    renderSection('arr-rows',rows);
+    document.getElementById('arr-updated').textContent='Updated '+new Date().toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit'});
+  }catch(e){
+    document.getElementById('arr-rows').innerHTML=`<div class="status-msg">Check API key &mdash; ${e.message.substring(0,50)}</div>`;
+    console.error('ARR:',e);
+  }
+}
+
+// ---- Refresh loop ----
+let cdTimer=null,secsLeft=CONFIG.REFRESH_SECS;
 function startCountdown(){
   secsLeft=CONFIG.REFRESH_SECS;
-  const fill=document.getElementById('refresh-fill');
-  const label=document.getElementById('footer-next');
-  fill.style.transition='none'; fill.style.width='0%';
-  if(cdTimer) clearInterval(cdTimer);
+  const fill=document.getElementById('refresh-fill'),label=document.getElementById('footer-next');
+  fill.style.transition='none';fill.style.width='0%';
+  if(cdTimer)clearInterval(cdTimer);
   cdTimer=setInterval(()=>{
     secsLeft=Math.max(0,secsLeft-1);
     fill.style.transition='width 1s linear';
     fill.style.width=((CONFIG.REFRESH_SECS-secsLeft)/CONFIG.REFRESH_SECS*100)+'%';
     label.textContent=`Refreshing in ${secsLeft}s`;
-    if(secsLeft<=0) clearInterval(cdTimer);
+    if(secsLeft<=0)clearInterval(cdTimer);
   },1000);
 }
 
+async function refresh(){await Promise.all([loadDep(),loadArr()]);startCountdown();}
 refresh();
-setInterval(refresh, CONFIG.REFRESH_SECS*1000);
+setInterval(refresh,CONFIG.REFRESH_SECS*1000);
 </script>
 </body>
 </html>
