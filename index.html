@@ -283,7 +283,7 @@ function fmtAltSpd(altM, spdMs) {
 // ============================================
 // OpenSky REST: get all states in BOS bounding box
 async function fetchStates() {
-  const url = `https://opensky-network.org/api/states/all?lamin=${CONFIG.LAT_MIN}&lomin=${CONFIG.LON_MIN}&lamax=${CONFIG.LAT_MAX}&lomax=${CONFIG.LON_MAX}`;
+  const url = `https://corsproxy.io/?url=https://opensky-network.org/api/states/all?lamin=${CONFIG.LAT_MIN}&lomin=${CONFIG.LON_MIN}&lamax=${CONFIG.LAT_MAX}&lomax=${CONFIG.LON_MAX}`;
   const resp = await fetch(url);
   if (!resp.ok) throw new Error(`OpenSky states ${resp.status}`);
   const json = await resp.json();
@@ -295,7 +295,7 @@ async function fetchFlights(type) {
   // type: 'arrival' or 'departure'
   const now   = Math.floor(Date.now()/1000);
   const begin = now - 7200; // 2 hours ago
-  const url   = `https://opensky-network.org/api/flights/${type}?airport=${CONFIG.AIRPORT}&begin=${begin}&end=${now}`;
+  const url   = `https://corsproxy.io/?url=https://opensky-network.org/api/flights/${type}?airport=${CONFIG.AIRPORT}&begin=${begin}&end=${now}`;
   const resp  = await fetch(url);
   if (!resp.ok) throw new Error(`OpenSky ${type} ${resp.status}`);
   return await resp.json();
